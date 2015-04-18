@@ -1,5 +1,6 @@
 <html>
-<body>
-<h2>Hello World!</h2>
-</body>
+	<title>MOS</title>
+	<body>
+		<h2>Welcome to Use</h2>
+	</body>
 </html>
