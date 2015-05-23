@@ -20,11 +20,16 @@ public class TestController {
 	@Autowired
 	TestService testService;
 	
-	
-	@RequestMapping("/hello.do")
+	@RequestMapping("/hello")
 	public String hello(HttpServletRequest request){
 		
 		System.out.println(testService.getMsg());
+		
+		return "jsp/test";
+	}
+	
+	@RequestMapping("/hi")
+	public String hi(){
 		
 		return "jsp/test";
 	}
