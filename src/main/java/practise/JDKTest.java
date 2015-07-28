@@ -2,6 +2,7 @@ package practise;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,11 +14,13 @@ public class JDKTest {
 	public static void main(String args[]){
 		
 		
-		HashMap hmap = new HashMap(10);
+		HashMap<String, String> hmap = new HashMap<String, String>(10);
 		
-		Hashtable ht = new Hashtable(10);
+		Hashtable<String, String> ht = new Hashtable<String, String>(10);
 		
-		ConcurrentHashMap cmap = new ConcurrentHashMap();
+		HashSet<String> hset = new HashSet<String>();
+		
+		ConcurrentHashMap<String, String> cmap = new ConcurrentHashMap<String, String>();
 		
 		
 		//字符对象

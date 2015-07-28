@@ -23,13 +23,50 @@ public class Test {
 	public static String escapeXMLText(String str) {
 		if (str == null)
 			return null;
-//		str = str.replaceAll("&", "&amp;");
-//		str = str.replaceAll("\"", "&quot;");
-//		str = str.replaceAll("'", "&apos;");
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&apos;");
 		str = str.replaceAll("<", "&lt;");
 		str = str.replaceAll(">", "&gt;");
 		return str;
 	}
+	
+	static String rulesReq = "<IBEPlus_1_0><IBEPlusRQ>"
+     		+ "<TSK_AirfarePrice>"
+			     + "<Request>"
+				     + "<SITA_AirfareRulesRQ Version=\"1.000\">"
+				     	+ "<ota:OTA_AirRulesRQ xmlns:ota=\"http://www.opentravel.org/OTA/2003/05\" EchoToken=\"TravelSky_IBE_LINE\" Target=\"Test\">"
+				     		+ "<ota:POS>"
+				                 + "<ota:Source AirportCode=\"PEK\" />"
+				                 + "<ota:Source>"
+				                     + "<ota:RequestorID Type=\"13\" ID_Context=\"IATA_Number\" ID=\"08300025\" />"
+				                 + "</ota:Source>"
+				                 + "<ota:Source PseudoCityCode=\"BJS191\" />"
+				             + "</ota:POS>"
+				             + "<ota:RuleReqInfo>"
+				                 + "<ota:DepartureDate>2015-07-01T13:30:00</ota:DepartureDate>"
+				                 + "<ota:FareReference>QKXEESE</ota:FareReference>"
+				                 + "<ota:RuleInfo />"
+				                 + "<ota:FilingAirline Code=\"KE\" />"
+				                 + "<ota:DepartureAirport LocationCode=\"SHA\" CodeContext=\"IATA\" />"
+				                 + "<ota:ArrivalAirport LocationCode=\"YVR\" CodeContext=\"IATA\" />"
+				             + "</ota:RuleReqInfo>"
+				         + "</ota:OTA_AirRulesRQ>"
+				         + "<AdditionalRulesRQData>"
+				             + "<References>"
+				                 + "<Ref1>GEPY01(USER(BJS,'1E',&lt;&gt;,Y,DEPT(&lt;&gt;,&lt;&gt;),&lt;&gt;,&lt;&gt;,&lt;&gt;),PF2(Y,[(AGENCY(BJS191),IATANUM('08300025'),N)],[],[],[],N,&lt;&gt;),&lt;&gt;)</Ref1>" 
+				                 + "<Ref2>003S001PANADTN0010000200ATP27</Ref2>"
+				             + "</References>"
+				         + "</AdditionalRulesRQData>"
+				         + "<TSK_Extensions>"
+				             + "<ResultType>1</ResultType>"
+				         + "</TSK_Extensions>"
+			     + "</SITA_AirfareRulesRQ>"
+			 + "</Request>"
+			+ "</TSK_AirfarePrice>"
+			+ "</IBEPlusRQ>"
+			+ "<OrderPath>AirFareRules/I</OrderPath>"
+			+ "</IBEPlus_1_0>";
 	
 	
 	public static InputStreamReader getSoapInputStream()
@@ -45,10 +82,11 @@ public class Test {
 				+ "<AirportCode>PEK</AirportCode> <ChannelID>1E</ChannelID> <IataNo>08300025</IataNo> </POS> <OriginDestinationInformation> <OriginLocationCode>SHA</OriginLocationCode> <DestinationLocationCode>YVR</DestinationLocationCode>"
 				+ " <DepartureDate> <Date>2015-07-01</Date> </DepartureDate> </OriginDestinationInformation> <OriginDestinationInformation> <OriginLocationCode>YVR</OriginLocationCode> <DestinationLocationCode>SHA</DestinationLocationCode> <DepartureDate> <Date>2015-07-10</Date> </DepartureDate> </OriginDestinationInformation> <TravelPreferences/> <TravelerInfoSummary> <AirTravelerAvail> <PassengerTypeQuantity> <Code>ADT</Code> <Quantity>1</Quantity> </PassengerTypeQuantity> </AirTravelerAvail> <PriceRequestInformation> <PricingSource>Both</PricingSource> </PriceRequestInformation> </TravelerInfoSummary> </OTA_AirLowFareSearchRQ> <AdditionalShopRQData> <IncludeTax>true</IncludeTax> <IncludeFlightAvailability>true</IncludeFlightAvailability> <IncludeBaggage>true</IncludeBaggage> <IncludeMileage>true</IncludeMileage> </AdditionalShopRQData> </TSK_AirfareFlightShopRQ> </TSK_AirfareFlightShop> </IBEPlusRQ>"
 				+ " <OrderPath>AirFareFlightShop/I</OrderPath> </IBEPlus_1_0>";
-		
+	        
+	       		
 			String identity = "<?xml version=\"1.0\" encoding=\"gb2312\"?><Identity_1_0><User>Harris</User><Pwd>DDBEACBF90F2AFF7777900F8A576614A</Pwd></Identity_1_0>";
 			String soap = "<?xml version=\"1.0\" encoding=\"gb2312\"?> <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> <soap:Body> <DoXml xmlns=\"http://ibe.casagt.com/\"><identity>" + escapeXMLText(identity) +"</identity>"
-					+ "<request>" + escapeXMLText(reqXml) + "</request> </DoXml> </soap:Body> </soap:Envelope>";
+					+ "<request>" + escapeXMLText(rulesReq) + "</request> </DoXml> </soap:Body> </soap:Envelope>";
 			
 			
 			URL url = new URL("http://www.cascc.cn/XMLServices/XMLService.asmx");
@@ -85,6 +123,10 @@ public class Test {
 		while ((b = isr.read()) != -1) {
 			result.append((char) b);
 		}
+		
+//		while(isr.)
+		
+		
 		isr.close();
 		return result.toString();
 	}
@@ -93,6 +135,8 @@ public class Test {
 		try {
 			String result = getSoapResponse();
 			System.out.println(result);
+			
+//			System.out.println(rulesReq);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
