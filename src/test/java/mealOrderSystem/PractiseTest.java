@@ -17,6 +17,7 @@ import practise.JDKTest;
  * @date 5:33:55 PM Aug 13, 2015
  */
 
+@SuppressWarnings("deprecation")
 public class PractiseTest {
 	
 	@Test
@@ -25,7 +26,6 @@ public class PractiseTest {
 		jdkTest.greeting();
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void test_marcher(){
 		String msg = "1.HUANG/SIYUE MS 2.WU/YANYAN MS JR95Q4"                                      
