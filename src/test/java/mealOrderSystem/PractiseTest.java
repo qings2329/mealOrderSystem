@@ -49,6 +49,7 @@ public class PractiseTest {
 			ticketSet.add(ticket);
 			System.out.println(ticket); 
 		}
+		
 		System.out.println("########## end match ##########");
 		Assert.assertTrue(ticketSet.size() > 0);;
 	}
