@@ -9,7 +9,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class JDKTest {
 	
-	
+	public void greeting(){
+		System.out.println("Hello, Test!");
+	}
 	
 	public static void main(String args[]){
 		

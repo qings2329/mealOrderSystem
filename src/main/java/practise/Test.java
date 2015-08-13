@@ -85,8 +85,21 @@ public class Test {
 	        
 	       		
 			String identity = "<?xml version=\"1.0\" encoding=\"gb2312\"?><Identity_1_0><User>Harris</User><Pwd>DDBEACBF90F2AFF7777900F8A576614A</Pwd></Identity_1_0>";
-			String soap = "<?xml version=\"1.0\" encoding=\"gb2312\"?> <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> <soap:Body> <DoXml xmlns=\"http://ibe.casagt.com/\"><identity>" + escapeXMLText(identity) +"</identity>"
-					+ "<request>" + escapeXMLText(rulesReq) + "</request> </DoXml> </soap:Body> </soap:Envelope>";
+//			String soap = "<?xml version=\"1.0\" encoding=\"gb2312\"?> <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> <soap:Body> <DoXml xmlns=\"http://ibe.casagt.com/\"><identity>"
+//							+ escapeXMLText(identity) +"</identity>"
+//							+ "<request>" + escapeXMLText(rulesReq) + "</request>"
+//						  + "</DoXml> </soap:Body> </soap:Envelope>";
+			
+			String queryPNR = "<?xml version=\"1.0\" encoding=\"gb2312\"?><RTPNR_1_0><PNRNo>KPXT53</PNRNo><OfficeCode>BJS191</OfficeCode></RTPNR_1_0>";
+			
+			String soap = "<?xml version=\"1.0\" encoding=\"gb2312\"?> <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> <soap:Body>"
+					+ " <DoXml xmlns=\"http://ibe.casagt.com/\">"
+					+ "<identity>" + escapeXMLText(identity) +"</identity>"
+					+ "<request>" + escapeXMLText(queryPNR) + "</request>"
+				  + "</DoXml> </soap:Body> </soap:Envelope>";
+			
+//			soap = queryPNR;
+			
 			
 			
 			URL url = new URL("http://www.cascc.cn/XMLServices/XMLService.asmx");

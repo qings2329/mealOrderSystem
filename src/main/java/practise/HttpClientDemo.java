@@ -72,9 +72,9 @@ public class HttpClientDemo {
 		String serviceUrl = "http://www.cascc.cn/XMLServices/XMLService.asmx";
 //		String serviceUrl = "http://espeed.travelsky.com/develop/xml/AirFareFlightShop/I";
 		
+		String queryPNR = "<?xml version=\"1.0\" encoding=\"gb2312\"?><RTPNR_1_0><PNRNo>JYDDF6</PNRNo><OfficeCode>BJS191</OfficeCode></RTPNR_1_0>";
 		
-		
-		
+
 		  String reqXml = "<IBEPlus_1_0> <IBEPlusRQ> <TSK_AirfareFlightShop> <TSK_AirfareFlightShopRQ> <OTA_AirLowFareSearchRQ> "
 					+ "<MaxResponses>100</MaxResponses> <DirectFlightsOnly>false</DirectFlightsOnly> <POS> <PseudoCityCode>BJS191</PseudoCityCode> "
 					+ "<AirportCode>PEK</AirportCode> <ChannelID>1E</ChannelID> <IataNo>08300025</IataNo> </POS> <OriginDestinationInformation> <OriginLocationCode>SHA</OriginLocationCode> <DestinationLocationCode>YVR</DestinationLocationCode>"
@@ -83,7 +83,7 @@ public class HttpClientDemo {
 			
 				String identity = "<?xml version=\"1.0\" encoding=\"gb2312\"?><Identity_1_0><User>Harris</User><Pwd>DDBEACBF90F2AFF7777900F8A576614A</Pwd></Identity_1_0>";
 				String reqStrSoap = "<?xml version=\"1.0\" encoding=\"gb2312\"?> <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"> <soap:Body> <DoXml xmlns=\"http://ibe.casagt.com/\"><identity>" + escapeXMLText(identity) +"</identity>"
-						+ "<request>" + escapeXMLText(reqXml) + "</request> </DoXml> </soap:Body> </soap:Envelope>";
+						+ "<request>" + escapeXMLText(queryPNR) + "</request> </DoXml> </soap:Body> </soap:Envelope>";
 		
 		
 		//请求 XML
@@ -96,8 +96,6 @@ public class HttpClientDemo {
 				+ "<AirportCode>PEK</AirportCode> <ChannelID>1E</ChannelID> <IataNo>08300025</IataNo> </POS> <OriginDestinationInformation> <OriginLocationCode>SHA</OriginLocationCode> <DestinationLocationCode>YVR</DestinationLocationCode>"
 				+ " <DepartureDate> <Date>2015-7-1</Date> </DepartureDate> </OriginDestinationInformation> <OriginDestinationInformation> <OriginLocationCode>YVR</OriginLocationCode> <DestinationLocationCode>SHA</DestinationLocationCode> <DepartureDate> <Date>2015-12-26</Date> </DepartureDate> </OriginDestinationInformation> <TravelPreferences/> <TravelerInfoSummary> <AirTravelerAvail> <PassengerTypeQuantity> <Code>ADT</Code> <Quantity>1</Quantity> </PassengerTypeQuantity> </AirTravelerAvail> <PriceRequestInformation> <PricingSource>Both</PricingSource> </PriceRequestInformation> </TravelerInfoSummary> </OTA_AirLowFareSearchRQ> <AdditionalShopRQData> <IncludeTax>true</IncludeTax> <IncludeFlightAvailability>true</IncludeFlightAvailability> <IncludeBaggage>true</IncludeBaggage> <IncludeMileage>true</IncludeMileage> </AdditionalShopRQData> </TSK_AirfareFlightShopRQ> </TSK_AirfareFlightShop> </IBEPlusRQ>"
 				+ " <OrderPath>AirFareFlightShop/I</OrderPath> </IBEPlus_1_0>";
-		
-		
 		
 		
 		//String identity = "<?xml version=\"1.0\" encoding=\"utf-8\"?><Identity_1_0><User>Harris</User><Pwd>DDBEACBF90F2AFF7777900F8A576614A</Pwd></Identity_1_0>";
