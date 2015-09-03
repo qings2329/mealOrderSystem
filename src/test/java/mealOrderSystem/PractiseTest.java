@@ -54,6 +54,20 @@ public class PractiseTest {
 		Assert.assertTrue(ticketSet.size() > 0);;
 	}
 	
+	@Test
+	public void test_return_catch(){
+		try{
+			System.out.println("execute return;");
+			return;
+		}catch(Exception e){
+			
+		}finally{
+			System.out.println("in finally");
+		}
+		
+		
+	}
+	
 	
 	
 	
