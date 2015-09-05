@@ -34,6 +34,10 @@ public class TestController {
 		return "jsp/test";
 	}
 	
+	@RequestMapping("/attack")
+	public String attack(){
+		return "/jsp/attack";
+	}
 	
 	public static void main(String[] args) {
         URLClassLoader classLoader = (URLClassLoader)Main.class.getClassLoader();
