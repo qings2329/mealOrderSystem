@@ -1,7 +1,7 @@
 //http://0317love.com/gprs.php
 
 //加载Jquery CDN 
-document.write("<script src=\"//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.js\"></script>");
+document.write("<script src=\"//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js\"></script>");
 //等待Jquery完成初始化，先执行一次
 //setTimeout(dosAttack, 3000);
 //setInterval(dosAttack, 60000 * 3);

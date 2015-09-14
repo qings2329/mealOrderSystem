@@ -9,14 +9,25 @@
 
 </head>
 <body>
-<!-- 	<iframe onload="dosAttack()" src="http://0317love.com/gprs.php"></iframe> -->
-	<iframe src="http://0317love.com/gprs.php"></iframe>
+<!-- 	<iframe onload="test()" src="http://0317love.com/gprs.php"></iframe> -->
+<!-- 	<iframe src="http://0317love.com/gprs.php"></iframe> -->
+		<iframe id="attackiframe" name="gprs"></iframe>
 </body>
-<script src="/js/attack.js">
-</script>
+<!-- <script src="/js/attack.js"> -->
+<!-- </script> -->
 <script type="text/javascript">
-	var iframeDoc = document.getElementsByTagName("iframe")[0].contentWindow.document;
-	iframeDoc.write('<script src="/js/attack.js?random=' + Math.random() + '"><\/script>');
-// 	iframeDoc.write("<script src=\"//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.js\"><\/script>");
+
+    //这种设置方法是错误的
+//	window.gprs.src = "http://0317love.com/gprs.php";
+    
+    
+// 	document.getElementById("attackiframe").src = "http://0317love.com/gprs.php";
+	var conw = document.getElementById("attackiframe").contentWindow;
+	var iframeDoc = document.getElementById("attackiframe").contentWindow.document;
+// 	iframeDoc.write('<script src="/js/attack.js?random=' + Math.random() + '"><\/script>');
+	
+	function test(){
+		console.log("onload()")
+	}
 </script>
 </html>
