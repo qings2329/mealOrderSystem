@@ -1,9 +1,11 @@
 package com.bitcoinreaver.utils;
 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * @author qings2329
@@ -43,6 +45,30 @@ public class Utils {
 		return result.toString();
 	}
 	
+	/**
+	 * 读取文本文件，保留换行
+	 * @param path
+	 * @return
+	 */
+	public static String getOriginalStringFromFile(String path) {
+        StringBuilder strB = new StringBuilder();
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File(path));
+            while (scanner.hasNextLine()) {
+                strB.append(scanner.nextLine());
+                //保留换行；
+                strB.append("\n");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (scanner != null) {
+                scanner.close();
+            }
+        }
+        return strB.toString();
+    }
 	
 	public static void main(String[] args){
 		Calendar calendar = Calendar.getInstance();
