@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.eclipse.jdt.internal.compiler.batch.Main;
+//import org.eclipse.jdt.internal.compiler.batch.Main;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,8 +31,8 @@ public class TestController {
 	
 	
 	public static void main(String[] args) {
-        URLClassLoader classLoader = (URLClassLoader)Main.class.getClassLoader();
-        System.out.println(Arrays.toString(classLoader.getURLs()));
+        //URLClassLoader classLoader = (URLClassLoader)Main.class.getClassLoader();
+        //System.out.println(Arrays.toString(classLoader.getURLs()));
 	}
 	
 }
