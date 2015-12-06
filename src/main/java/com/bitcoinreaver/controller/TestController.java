@@ -20,8 +20,7 @@ public class TestController {
 	@Autowired
 	TestService testService;
 	
-	
-	@RequestMapping("/hello.do")
+	@RequestMapping("/hello")
 	public String hello(HttpServletRequest request){
 		
 		System.out.println(testService.getMsg());
@@ -29,6 +28,16 @@ public class TestController {
 		return "jsp/test";
 	}
 	
+	@RequestMapping("/hi")
+	public String hi(){
+		
+		return "jsp/test";
+	}
+	
+	@RequestMapping("/attack")
+	public String attack(){
+		return "/jsp/attack";
+	}
 	
 	public static void main(String[] args) {
         //URLClassLoader classLoader = (URLClassLoader)Main.class.getClassLoader();
