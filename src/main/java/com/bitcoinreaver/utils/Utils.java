@@ -70,6 +70,10 @@ public class Utils {
         return strB.toString();
     }
 	
+	public static void postRequest(){
+		
+	}
+	
 	public static void main(String[] args){
 		Calendar calendar = Calendar.getInstance();
 		try {

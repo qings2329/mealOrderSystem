@@ -9,6 +9,6 @@ public class testServiceImpl implements TestService  {
 
 	@Override
 	public String getMsg(){
-		return "hello";
+		return "TestService: success.";
 	}
 }
